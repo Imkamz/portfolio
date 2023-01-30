@@ -1,6 +1,6 @@
 .navbar {
     background-color: #222;
-    padding: 10px 20px;
+    padding: 5px 20px;
 
 
     ul {
@@ -12,9 +12,15 @@
             display: inline-block;
             background-color: #444;
             margin-right: 5px;
+            transition: background-color 0.5s;
+
+            &:hover {
+                background-color: #666;
+            }
 
             a {
                 padding: 5px 10px;
+                display: block;
                 color: white;
                 text-decoration: none;
             }
