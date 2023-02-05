@@ -28,6 +28,19 @@ const CalculatorPage = () => {
 
 
     }
+    const minusNumbers = () => {
+        console.log("minusnumbers", numbers)
+        let total = 1
+        getNumberArray().forEach(element => {
+            total -= element
+
+        });
+        setFinalTotal(total)
+        return total
+
+
+
+    }
 
     const getNumberArray = () => {
         let numberArray = numbers.split("\n")
@@ -47,6 +60,7 @@ const CalculatorPage = () => {
                     onChange={e => setNumbers(e.target.value)}></textarea>
                 <button onClick={sumNumbers}>sum</button>
                 <button onClick={multiplyNumbers}>multiply</button>
+                <button onClick={minusNumbers}>minus</button>
                 <h2>{finalTotal}</h2>
             </div>
         </UtilsLayout>
