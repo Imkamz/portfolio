@@ -72,7 +72,7 @@ const CalculatorPage = () => {
                         rows={8}
                         onChange={e => setNumbers(e.target.value)}></textarea>
                     <h2>
-                        <strong>Total:</strong> {finalTotal}</h2>
+                        <strong>Total:</strong> {(finalTotal).toLocaleString()}</h2>
                 </div>
                 <div>
                     <div className="flex justify-center">
