@@ -1,11 +1,8 @@
-.footer {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 80%;
-    opacity: 0.3;
-    transition: 1s opacity;
 
-    &:hover {
-        opacity: 1;
-    }
+.footer {
+    @apply text-center mt-2;
+    @apply text-sm;
+    @apply opacity-30 hover:opacity-100;
+    @apply transition-opacity;
+
 }

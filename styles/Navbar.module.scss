@@ -1,28 +1,23 @@
 .navbar {
-    background-color: #222;
-    padding: 5px 20px;
+   
+ @apply bg-neutral-900;
+ @apply px-4 py-2;
 
 
     ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
+        
 
         li {
-            display: inline-block;
-            background-color: #444;
-            margin-right: 5px;
-            transition: background-color 0.5s;
+            @apply inline-block bg-neutral-600;
+            @apply mr-2 transition-colors hover:bg-neutral-700;
 
-            &:hover {
-                background-color: #666;
-            }
+
 
             a {
-                padding: 5px 10px;
-                display: block;
-                color: white;
-                text-decoration: none;
+              
+                @apply px-4 py-2 block;
+                @apply text-white;
+
             }
         }
     }
