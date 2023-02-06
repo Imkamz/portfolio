@@ -1,0 +1,28 @@
+.btn{
+    @apply border;
+    @apply py-1 px-4;
+    @apply mx-1;
+    @apply bg-neutral-50;
+   
+    &.btn-dark{
+        @apply bg-neutral-600 text-neutral-50;
+    }
+    
+    &.btn-red{
+        @apply bg-red-600 text-red-50;
+    }
+
+&.btn-green{
+    @apply bg-green-600 text-green-50;
+}
+&.btn-blue{
+    @apply bg-blue-600 text-blue-50;
+}
+&.btn-calc{
+    @apply py-3 rounded mx-0;
+}
+
+}
+
+
+

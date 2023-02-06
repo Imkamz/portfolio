@@ -16,6 +16,11 @@ export default function Navbar() {
                     </Link>
                 </li>
                 <li>
+                    <Link href="/utils">
+                        Utilities
+                    </Link>
+                </li>
+                <li>
                     <Link href="https://github.com/Imkamz" target="_blank">
                         <FaGithub className="inline"></FaGithub>  Github
                     </Link>
