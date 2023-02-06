@@ -30,7 +30,7 @@ const CalculatorPage = () => {
     }
     const minusNumbers = () => {
         console.log("minusnumbers", numbers)
-        let total = 1
+        let total = getFirstNumber() * 2
         getNumberArray().forEach(element => {
             total -= element
 
@@ -48,6 +48,9 @@ const CalculatorPage = () => {
             .map((e) => { return parseFloat(e) })
         console.log(numberArray)
         return numberArray
+    }
+    const getFirstNumber = () => {
+        return getNumberArray()[0]
     }
 
     return (
