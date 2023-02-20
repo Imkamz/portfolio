@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { FaCalculator, FaRandom, FaDice } from "react-icons/fa"
+import { BiJoystick } from "react-icons/bi"
 
 
 const UtilsIndex = () => {
@@ -15,6 +16,11 @@ const UtilsIndex = () => {
                 <li>
                     <Link href="/utils/random">
                         <FaRandom className="inline"></FaRandom> Random Number Generator
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/utils/rps">
+                        <BiJoystick className="inline"></BiJoystick> Rock Paper Scissors
                     </Link>
                 </li>
                 <li>
