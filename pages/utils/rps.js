@@ -1,49 +1,62 @@
+import ComputerGuess from "@/components/computer-guess"
 import Dice from "@/components/dice"
 import UtilsLayout from "@/components/UtilsLayout"
 import { useState } from "react"
 import { FaDice } from "react-icons/fa"
 import { GiPaper, GiRock, GiScissors } from "react-icons/gi"
+export const GUESS_WAITING = -1
+export const GUESS_ROCK = 1
+export const GUESS_PAPER = 2
+export const GUESS_SCISSORS = 3
+
+const RockPaperScissors = () => {
 
 
-const CalculatorPage = () => {
-
-    const GUESS_ROCK = 1
-    const GUESS_PAPER = 2
-    const GUESS_SCISSORS = 3
 
     const [result, setResult] = useState("waiting")
+    const [score, setScore] = useState(0)
+    const [computerGuess, setComputerGuess] = useState(GUESS_WAITING)
+    const win = () => {
+        setResult("Win")
+        setScore(score + 1)
+    }
+    const lose = () => {
+        setResult("Lose")
+        setScore(score - 1)
+    }
 
     const play = (guess) => {
-        const computerGuess = generateComputerGuess()
-        console.log(guess, computerGuess)
-        if (guess == computerGuess) {
+        const generatedGuess = generateComputerGuess()
+        setComputerGuess(generatedGuess)
+        console.log(guess, generatedGuess)
+        if (guess == generatedGuess) {
             setResult("Draw")
             return
         }
         if (guess == GUESS_ROCK) {
 
-            if (computerGuess == GUESS_PAPER) {
-                setResult("Lose")
+            if (generatedGuess == GUESS_PAPER) {
+                lose()
             }
-            else if (computerGuess == GUESS_SCISSORS) {
-                setResult("Win")
+            else if (generatedGuess == GUESS_SCISSORS) {
+                win()
             }
         }
         else if (guess == GUESS_PAPER) {
-            if (computerGuess == GUESS_ROCK) {
-                setResult("Win")
+            if (generatedGuess == GUESS_ROCK) {
+                win()
             }
 
-            else if (computerGuess == GUESS_SCISSORS) {
-                setResult("Lose")
+            else if (generatedGuess == GUESS_SCISSORS) {
+                lose()
             }
         }
         else if (guess == GUESS_SCISSORS) {
-            if (computerGuess == GUESS_ROCK) {
-                setResult("Lose")
+            if (generatedGuess == GUESS_ROCK) {
+                lose()
             }
-            else if (computerGuess == GUESS_PAPER) {
-                setResult("Win")
+            else if (generatedGuess == GUESS_PAPER) {
+                win()
             }
 
         }
@@ -66,24 +79,34 @@ const CalculatorPage = () => {
     return (
         <UtilsLayout>
             <h1><FaDice className="inline"></FaDice> Dice game</h1>
-            <div className="text-center text-3xl" >
-                {result}
-            </div>
-            <div className="flex items-center justify-center" >
-                <button className="btn btn-green rounded" onClick={(e) => play(GUESS_ROCK)}>
-                    <GiRock className="text-4xl"></GiRock>
-                </button>
-                <button className="btn btn-dark rounded" onClick={(e) => play(GUESS_PAPER)}>
-                    <GiPaper className="text-4xl"></GiPaper>
-                </button>
-                <button className="btn btn-red rounded" onClick={(e) => play(GUESS_SCISSORS)}>
-                    <GiScissors className="text-4xl"></GiScissors>
-                </button>
+            <div className="max-w-xl mx-auto">
+                <div className="flex justify-evenly">
+                    <div className="text-2xl" >
+                        {result}
+                    </div>
+                    <div className="text-2xl">
+                        <strong>score</strong> {(score).toLocaleString()}
+                    </div>
+
+                </div>
+                <div>
+                    <ComputerGuess guess={computerGuess}></ComputerGuess>
+                </div>
+                <div className="flex items-center justify-center" >
+                    <button className="btn btn-green rounded" onClick={(e) => play(GUESS_ROCK)}>
+                        <GiRock className="text-4xl"></GiRock>
+                    </button>
+                    <button className="btn btn-dark rounded" onClick={(e) => play(GUESS_PAPER)}>
+                        <GiPaper className="text-4xl"></GiPaper>
+                    </button>
+                    <button className="btn btn-red rounded" onClick={(e) => play(GUESS_SCISSORS)}>
+                        <GiScissors className="text-4xl"></GiScissors>
+                    </button>
+
+                </div>
 
             </div>
-
-
         </UtilsLayout>
     )
 }
-export default CalculatorPage
+export default RockPaperScissors

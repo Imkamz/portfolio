@@ -7,6 +7,7 @@ const UtilsLayout = ({ children }) => {
             <Link href="/utils">
                 <FaArrowLeft className="inline"></FaArrowLeft> All utils
             </Link>
+            
             {children}
         </div>
     )
